@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+body {
+  /*margini sıfırladım*/
+  margin: 0;
+  /*paddingi sıfırladım*/
+  padding: 0;
+  /*özel olarak belirlediğim bg-coloru kullandım*/
+  background-color: var(--bg-color);
+  /*olabilecek taşmaları engelledim*/
+  overflow: hidden;
+  /*özel font verdim*/
+  font-family: "Lora", serif;
+  /*üzerine after elementi uygulayacağım için positionu relative verdim*/
+  position: relative;
+  color: var(--bg-color);
+}
+/*kullanacağım renkleri bir kere tanımlayıp istediğim yerde kullandım*/
+:root {
+  --bg-color: #898ac4;
+  --grid-color: #fff2e0;
+  --font-color: #fff;
+  --border-color: #a2aadb;
+  --logo-color: #c0c9ee;
+}
+
+/* :root {
+  --bg-color: #00304f;
+  --grid-color: #6d989e;
+  --font-color: #fff;
+  --border-color: #1a9c9638;
+  --logo-color: #178984;
+} */
+
+.content {
+  position: relative;
+  /* Arka planın üzerinde kalması için z-index:1*/
+  z-index: 1;
+  /*içerikleri yatayda hizzalamak için flex kullandım*/
+  display: flex;
+  /* Dikeyde ortalama */
+  align-items: center;
+  /* Yatayda ortalama */
+  justify-content: center;
+  /* Tüm ekran yüksekliğini kaplar */
+  height: 100vh;
+}
+.card {
+  /* Kartın arka plan rengi*/
+  background-color: var(--font-color);
+  /*iç boşluk*/
+  padding: 40px;
+
+  /* Köşeleri yuvarlatma */
+  border-radius: 6px;
+  /* İçerikleri ortalama */
+  text-align: center;
+  /* Maksimum genişlik */
+  max-width: 600px;
+  /* Ekranın %90'ını kapsar */
+  width: 90%;
+  /* Hover için yumuşak geçiş */
+  transition: all 0.4s ease-in-out;
+}
+
+.card h4 {
+  /* Başlık boyutu */
+  font-size: 30px;
+  /* Font kalınlığı */
+  font-weight: 700;
+  /* Başlık rengi */
+  color: var(--bg-color);
+}
+.card ul {
+  /* Madde imlerini kaldırır */
+  list-style-type: none;
+}
+.card ul li {
+  /* Liste öğelerinin yazı boyutu */
+  font-size: 20px;
+  /* Font kalınlığı */
+  font-weight: 600;
+}
+.card button {
+  /* Üstten boşluk */
+  margin-top: 20px;
+  /*buton üzerindeki yazının boyutu*/
+  font-size: 26px;
+  /*buton üzerindeki font kalınlığı*/
+  font-weight: 600;
+  /*Buton rengi */
+  background-color: var(--border-color);
+  /* Yazı rengi beyaz */
+  color: var(--font-color);
+  /*Border yok*/
+  border: none;
+  /* Butonun iç boşluğu */
+  padding: 10px 20px;
+  /* Yazı boyutu */
+  font-size: 16px;
+  /* Butonun kenarlarının yuvarlaklaşması */
+  border-radius: 4px;
+  /* Üzerine gelince pointer olması */
+  cursor: pointer;
+}
+.card button:hover {
+  /* Buton üzerine gelince arka plan rengini değiştir */
+  background-color: var(--bg-color);
+  /* Yazı rengini değiştir */
+  color: var(--font-color);
+  /* Geçiş efekti */
+  transition: all 0.3s ease;
+}
+
+/* Mobil uyumluluk için eklemeler */
+@media (max-width: 600px) {
+  .content {
+    height: auto;
+    min-height: 100vh;
+    padding: 10px 0;
+  }
+  .card {
+    padding: 16px;
+    max-width: 98vw;
+    width: 98vw;
+    border-radius: 4px;
+  }
+  .card h4 {
+    font-size: 22px;
+  }
+  .card ul li {
+    font-size: 15px;
+  }
+  .card button {
+    font-size: 18px;
+    padding: 8px 0;
+    width: 100%;
+    margin-top: 16px;
+  }
+}
+
+/* Quiz ve sonuç ekranı için mobil düzen */
+@media (max-width: 600px) {
+  .quiz-card {
+    padding: 10px;
+    max-width: 99vw;
+    width: 99vw;
+    border-radius: 4px;
+  }
+  .quiz-images {
+    width: 100%;
+    margin: 6px auto;
+  }
+  .quiz-images img {
+    height: 120px;
+    padding: 4px;
+    border-radius: 4px;
+  }
+  .options button {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+/* Sonuç ekranı için mobil düzen */
+@media (max-width: 600px) {
+  .result-div {
+    padding: 10px;
+    max-width: 99vw;
+    width: 99vw;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .result-div button {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  .answer-summary > div {
+    font-size: 13px;
+    padding: 6px;
+  }
+}
